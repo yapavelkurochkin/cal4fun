@@ -1,12 +1,10 @@
 TARGET=calendar
 BOOKLET=calendar-booklet.pdf
 
-
 # '-shell-escape' is required for correct eps->pdf conversion
 PDFLATEX=pdflatex -shell-escape 
 
-SRC=${TARGET}.tex $(wildcard *.tex) #\
-#  $(filter-out ${TARGET}.tex, $(wildcard *.tex))
+latex_cmd="\def\draft{$(DRAFT)}\input $<"
 
 PICS=$(wildcard pics/*)
 
@@ -14,14 +12,14 @@ all: ${TARGET}.pdf  ${BOOKLET} ${PICS}
 
 booklet: ${BOOKLET}
 
-${BOOKLET}: calendar-booklet.tex ${TARGET}.pdf
-	${PDFLATEX} $(latex_cmd)
+calendar-booklet.tex: $(TARGET).pdf
 
-latex_cmd="\def\draft{$(DRAFT)}\input $<"
+$(BOOKLET): calendar-booklet.tex preamble.tex
+	$(PDFLATEX) $(latex_cmd)
 
-${TARGET}.pdf: ${SRC} $(PICS)  
+$(TARGET).pdf: calendar.tex preamble.tex $(PICS)  
 	make -C pics
-	${PDFLATEX} $(latex_cmd)  
+	$(PDFLATEX) $(latex_cmd)  
 
 clean:
 	rm -f  *.dvi *.log *.aux *.toc *.out *.tmp *.idx *.ind
