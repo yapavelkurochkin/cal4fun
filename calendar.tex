@@ -1,0 +1,155 @@
+\input{preamble}
+
+\begin{document}
+
+\sf
+\centering
+
+\thispagestyle{empty}
+\includegraphics[width=260mm]{pics/title}
+
+% общие параметры для всех месяцев
+\tikzstyle{every calendar}=
+[
+  week list,
+  month label above centered,
+  every month/.append style={yshift=10mm},
+  month label above centered,
+  month text=\Huge\textbf{\%mt},
+  %month text=\Huge \textcolor{black} {\%mt},
+  day headings={font=\small},
+  day letter headings,
+  if={(Saturday, Sunday) [red!70]},
+  if={(Monday, Tuesday, Wednesday, Thursday, Friday) [black!90]},
+]
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/no_letter}
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-02-01 to 2014-02-last]
+ if (equals=02-27) [event={\textcolor{navy}{\footnotesize\textbf{НТЦ Метротек 10 лет!}}}]
+ if (at most=02-26) [lightgray];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/krol}
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-03-01 to 2014-03-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/no_instr}
+\newpage
+
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-04-01 to 2014-04-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/if} 
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-05-01 to 2014-05-last];
+\end{tikzpicture}
+
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/wework} 
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-06-01 to 2014-06-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/merge} 
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-07-01 to 2014-07-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/always}
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-08-01 to 2014-08-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/twofrom}
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-09-01 to 2014-09-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/no_command}
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-10-01 to 2014-10-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/plan}
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-11-01 to 2014-11-last];
+
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/new}
+\newpage
+
+\begin{tikzpicture}[thick]
+ \calendar[dates=2014-12-01 to 2014-12-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/dialog} 
+\newpage
+
+\thispagestyle{my}
+\begin{tikzpicture}[thick]
+ \calendar[dates=2015-01-01 to 2015-01-last];
+\end{tikzpicture}
+
+\newpage
+\thispagestyle{empty}
+\includegraphics[width=280mm]{pics/superman} 
+\newpage
+
+\thispagestyle{my}
+\begin{tikzpicture}[thick]
+\calendar[dates=2015-02-01 to 2015-02-last]
+  if (equals=2015-02-27) [event={\textcolor{navy}{\scriptsize\textbf{День Рождения НТЦ Метротек}}}]
+  if (equals=2015-02-28) [lightgray];
+\end{tikzpicture}
+
+
+
+\end{document}
+

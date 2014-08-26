@@ -1,0 +1,283 @@
+\documentclass[fontsize=20pt]{scrartcl}
+\usepackage[pdf]{optional}
+\usepackage[koi8-r]{inputenc}
+\usepackage{scrpage2} % пакет для настройки колонтитулов
+
+\usepackage[english, russian]{babel}
+\usepackage{paratype}
+\usepackage[left=8mm,right=8mm,top=15mm,bottom=20mm,a4paper,landscape]{geometry}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{tikz}
+\usepackage{color}
+\usetikzlibrary{calendar,fit}
+\usepackage{expl3,xparse}
+\usepackage{comment}
+\usetikzlibrary{shapes.geometric}
+\usepackage[strict]{changepage}
+%\usepackage[usenames,dvipsnames]{xcolor}
+%\usepackage{afterpage}
+
+
+\renewcommand*{\titlepagestyle}{empty}
+
+% Adapted from http://tex.stackexchange.com/a/10199/4771 добавляем названия 
+% дней недели
+\makeatletter%
+\tikzoption{day headings}{\tikzstyle{day heading}=[#1]}
+\tikzstyle{day heading}=[]
+\tikzstyle{day letter headings}=[
+    execute before day scope={ \ifdate{day of month=1}{%
+      \pgfmathsetlength{\pgf@ya}{\tikz@lib@cal@yshift}%
+      \pgfmathsetlength\pgf@xa{\tikz@lib@cal@xshift}%
+      \pgftransformyshift{-\pgf@ya}
+      \foreach \d/\l in {0/Понедельник,1/Вторник,2/Среда,3/Четверг,%
+                         4/Пятница,5/Суббота,6/Воскресенье} {
+        \pgf@xa=\d\pgf@xa%
+        \pgftransformxshift{\pgf@xa-\cellwidth/2}%
+        \pgftransformyshift{\pgf@ya}%
+        \node[above=-0.5ex,day heading]{\l};%
+      }
+    }{}%
+  }%
+]
+\makeatother%
+%% End
+
+
+
+
+%% Adapted from pgf source
+\def\pgfcalendarmonthname#1{%
+  \translate{\ifcase#1\or ЯНВАРЬ\or ФЕВРАЛЬ\or МАРТ\or АПРЕЛЬ\or
+    МАЙ\or ИЮНЬ\or ИЮЛЬ\or АВГУСТ\or СЕНТЯБРЬ\or ОКТЯБРЬ\or
+    НОЯБРЬ\or ДЕКАБРЬ\fi}%
+}
+
+
+% переопределяем вид заголовка (название месяца)
+\makeatletter
+\tikzstyle{month label above centered}=[%
+  execute before day scope={%
+    \ifdate{day of month=1}{%
+      {
+        \pgfmathsetlength{\pgf@xa}{\tikz@lib@cal@xshift}%
+        \pgf@xb=\tikz@lib@cal@width\pgf@xa%
+        \advance\pgf@xb by-\pgf@xa%
+        \pgf@xb=.5\pgf@xb%
+        \pgftransformxshift{\pgf@xb}%
+        \pgftransformxshift{-\cellwidth/2}%
+        \pgfmathsetlength{\pgf@y}{\tikz@lib@cal@yshift}%
+        \pgftransformyshift{0.333\pgf@y}
+        \tikzmonthcode%
+      }
+    }{}},
+  every month/.append style={anchor=base}
+]
+\makeatother
+%% End
+
+\ExplSyntaxOn
+
+%% Adapted from http://tex.stackexchange.com/a/56214/4771
+%%
+% first of all we define the user level commands
+\NewDocumentCommand{\addtext}{ m }{ \bdaycal_input_add:n { #1 } }
+\NewDocumentCommand{\addtextyear}{ mm }{ \bdaycal_input_add_y:nn { #1 } { #2 } }
+\NewDocumentCommand{\showtext}{ }{ \bdaycal_output_direct: }
+
+% allocate variable:
+% a sequence for global storage of the inputs;
+\seq_new:N \g_bdaycal_input_seq
+
+% store globally an input in the sequence
+\cs_new:Npn \bdaycal_input_add:n #1
+ {
+  \seq_gput_right:Nn \g_bdaycal_input_seq { #1 }
+ }
+
+\cs_new:Npn \bdaycal_input_add_y:nn #1 #2
+ {
+  \seq_gput_right:Nn \g_bdaycal_input_seq { #1 ~ ( \int_to_arabic:n
+    { \pgfcalendarifdateyear - #2 } ) }
+ }
+
+% how to output in direct order; we simply do a mapping function calling
+% \bdaycal_print:n after incrementing the counter
+\cs_new_protected:Npn \bdaycal_output_direct:
+ {
+  \seq_map_inline:Nn \g_bdaycal_input_seq
+   {
+    \bdaycal_print:n { ##1 }
+   }
+  \seq_gclear:N \g_bdaycal_input_seq
+ }
+
+% the printing macro; change here for adapting to your wishes
+\cs_new:Npn \bdaycal_print:n #1
+ {
+  #1 \par
+ }
+%% End
+
+\input{easter}
+
+
+\int_new:N \l_advent_Y_int
+\int_new:N \l_advent_xmas_julian_day_int
+\int_new:N \l_advent_xmas_week_day_int
+\int_new:N \l_advent_julian_day_int
+
+\cs_new:Nn \advent_sunday:n {
+
+  \int_set:Nn \l_advent_Y_int { #1 }
+
+  \pgfcalendardatetojulian { \l_advent_Y_int - 12 - 25 } {
+    \l_advent_xmas_julian_day_int }
+
+  \pgfcalendarjuliantoweekday { \l_advent_xmas_julian_day_int } {
+    \l_advent_xmas_week_day_int }
+
+  \int_set:Nn \l_advent_julian_day_int {
+    \l_advent_xmas_julian_day_int - \l_advent_xmas_week_day_int - 22 }
+
+}
+
+\pgfkeys{/pgf/calendar/Advent/.default = 0}
+\pgfkeys{/pgf/calendar/Advent/.code =
+  {
+    \advent_sunday:n { \pgfcalendarifdateyear }
+    \int_compare:nNnT { \pgfcalendarifdatejulian }
+    =  {\l_advent_julian_day_int + #1}
+    { \pgfcalendarmatchestrue }
+  }
+}
+
+\input{weeknumber}
+
+\definecolor{roed}{rgb}{0.937254901961,0.16862745098,0.176470588235}
+\definecolor{navy}{rgb}{0.000000,0.000000,0.501961}
+\definecolor{dimgray}{rgb}{0.411765,0.411765,0.411765}
+\definecolor{lightgray}{rgb}{0.827451,0.827451,0.827451}
+%%% выводим номер недели
+
+\pgfkeys{/tikz/week~number/.code =
+  {
+    \week_number:nnn { 
+      \pgfcalendarifdateyear } { 
+      \pgfcalendarifdatemonth } { 
+      \pgfcalendarifdateday }
+    \addtext{ \int_to_arabic:n { \l_week_number_W_int } }
+  }
+}
+
+\ExplSyntaxOff
+
+
+% код для ключа image. ключ имеет 2 аргумента --- ширина и название рисунка
+% картинка вставляется в ячейку календаря
+
+\pgfkeys{/tikz/image/.code 2 args=
+ {
+  \draw (-\cellwidth,0) % задали точку 
+  node [above right]    % разместили объект над точкой и правее
+   {
+   \begin{tikzpicture}
+     \includegraphics[width=#1]{#2} 
+   \end{tikzpicture}
+   };
+  }
+}
+
+
+\pgfkeys{/tikz/event/.code =
+ {
+    \addtext{#1}
+  }
+}
+
+
+\pgfkeys{/tikz/anniversary/.code 2 args=\addtextyear{#1}{#2}}
+
+% описываем вид ячейки для даты (прямоугольник со скруглёнными краями)
+\pgfkeys{/tikz/day code =
+  {
+    \node (lower right) at (0,0) [above left,font=\Huge] {\tikzdaytext};
+%    \node (upper right) at (-\cellwidth,\cellheight)
+%    [below right,align=left,text width=\cellwidth-\pgflinewidth,
+%    font=\tiny,black] {\showtext};
+        \node (upper left) at (-\cellwidth,\cellheight)
+    [below right,align=left,text width=\cellwidth-\pgflinewidth,
+    font=\tiny,black] {\showtext};
+    \node (lower left) at (-\cellwidth,0) {};
+    \node[rounded corners, draw,
+          fit=(lower right) (upper left) (lower left),
+          inner sep=1mm] {};
+  }
+}
+
+
+
+\pgfkeys{/tikz/inner sep = 0pt}
+
+\pgfkeys{/tikz/day xshift=\cellwidth+3mm+4mm}% xshift --- горизонтальный сдвиг между датами
+
+\pgfkeys{/tikz/day yshift=\cellheight+2mm+2mm}% yshift --- вертикальный сдвиг между датами
+
+\newlength{\cellheight}
+\setlength{\cellheight}{21mm}
+\newlength{\cellwidth}
+\setlength{\cellwidth}{34mm}
+
+% настройка колонтитулов
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\definecolor{navy}{rgb}{0.000000,0.000000,0.501961}
+
+
+%\renewcommand*{\chapterpagestyle}{empty}
+
+\pagestyle{scrheadings} % активируем команды для задания колонтитулов, описаннные ниже
+%\ohead{\pagemark} % номер страницы на чётных страницах слева, на нечётных --- справа
+
+\lefoot{}                      %% Bottom left on even pages
+\lofoot{}                      %% Bottom left on odd pages
+\refoot{}                      %% Bottom right on even pages
+%\rofoot{\color{Black}\sf\small{\copyright{} НТЦ Метротек, 2014}} %% Bottom right on odd pages
+\rofoot{\color{Black}\sf\small{}} %% Bottom right on odd pages
+
+\cfoot{\color{navy}\footnotesize\sf{НТЦ Метротек, +7 (812) 340-0118, 
++7 (812) 340-0119 \\ metrotek.spb.ru}}                           %% Bottom center
+
+\lehead{\bfseries\pagemark}    %% Top left on even pages
+\lohead{\color{navy}\sf\textbf{\\ \hspace{2mm} \\ \includegraphics[width=45mm]{pics/2014}
+}}    %% Top left on odd pages
+\rehead{}    %% Top right on even pages
+\rohead{\color{navy}\sf\textbf{ }}    %% Top right on odd pages
+%\chead{}                           %% Top center
+
+\setkomafont{pagehead}{%
+\normalfont\normalcolor\sf\large %шрифт для колонтитулов
+}
+
+%%%% высота верхнего колонтитула (header)
+\setlength{\headheight}{10mm}
+
+%%%% вертикальный интервал от базовой линии нижней строки текста до
+%%%% базовой линии нижнего колонтитула (footer)
+\setlength{\footskip}{10mm}
+
+%\deftripstyle{my}{\includegraphics[width=48mm]{pics/2015}}{}{}{}{\color{navy}\footnotesize\sf{НТЦ Метротек, +7 (812) 340-0118, +7 (812) 340-0119 }}{}
+
+\deftripstyle{my}{\includegraphics[width=48mm]{pics/2015}}{}{}{}{\raisebox{1ex}{\begin{tabular}[t]{cc} \color{navy}\footnotesize\sf{НТЦ Метротек, +7 (812) 340-0118, +7 (812) 340-0119}\\ \color{navy}\footnotesize\sf{metrotek.spb.ru}\end{tabular}}}{}
+
+
+%\setheadtopline{.1pt}[\color{blue}]
+%\setheadsepline{}
+
+%\let\endtitlepage\relax
+
+
+
+

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   id="svg3043"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="plan.svg">
+  <defs
+     id="defs3045">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="5.7582672 : 890.29132 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="736.80918 : 1088.3758 : 1"
+       inkscape:persp3d-origin="526.18109 : 248.03149 : 1"
+       id="perspective4748" />
+    <path
+       sodipodi:type="spiral"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="path3765"
+       sodipodi:cx="305.06607"
+       sodipodi:cy="398.79349"
+       sodipodi:expansion="2.26"
+       sodipodi:revolution="3.4052916"
+       sodipodi:radius="124.87269"
+       sodipodi:argument="-18.09897"
+       sodipodi:t0="0.72479838"
+       d="m 253.64497,367.23404 c 14.88716,-34.65446 57.34513,-47.22846 90.67001,-32.39042 42.29262,18.83096 57.48718,71.00759 38.76997,111.83357 -23.28453,50.78822 -86.32204,68.88372 -135.50459,45.78013 -42.85723,-20.13226 -68.23552,-66.19513 -65.88,-113.0052"
+       transform="translate(-79.802051,-10.101525)" />
+    <path
+       transform="translate(283.75571,39.219905)"
+       d="m 113.52366,264.62939 c 18.44065,-33.82574 62.9664,-42.00021 95.20641,-23.63598 41.91998,23.87803 51.8039,79.66882 28.10837,119.86812 -29.9875,50.87358 -98.32513,62.62471 -147.344636,32.92484 C 47.30535,368.2253 25.604439,318.09449 32.114454,269.7001"
+       sodipodi:t0="0.67170453"
+       sodipodi:argument="-20.761362"
+       sodipodi:radius="133.06178"
+       sodipodi:revolution="2.8431239"
+       sodipodi:expansion="1.98"
+       sodipodi:cy="301.85953"
+       sodipodi:cx="161.23149"
+       id="path3165"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:type="spiral" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:document-units="mm"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.86831672"
+     inkscape:cx="400.06507"
+     inkscape:cy="393.15708"
+     inkscape:current-layer="g3184"
+     id="namedview3047"
+     showgrid="false"
+     inkscape:window-width="1848"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata3049">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3184"
+       transform="translate(50.552744,18.214265)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.02219033px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="rect3762"
+         width="1051.1208"
+         height="742.56158"
+         x="-49.866177"
+         y="-17.500124" />
+      <path
+         transform="translate(700.22079,253.06036)"
+         d="m 113.52375,264.62925 c 18.44075,-33.8257 62.96653,-42.00005 95.2065,-23.63573 41.91992,23.87816 51.80369,79.66898 28.10804,119.86822 -29.98764,50.87351 -98.32532,62.62445 -147.344745,32.92445 C 33.149219,359.64816 16.429107,285.17867 45.101933,227.48262"
+         sodipodi:t0="0.65968311"
+         sodipodi:argument="-20.761362"
+         sodipodi:radius="137.90576"
+         sodipodi:revolution="2.8949349"
+         sodipodi:expansion="1.98"
+         sodipodi:cy="301.85953"
+         sodipodi:cx="161.23149"
+         id="path3264"
+         style="fill:none;stroke:none"
+         sodipodi:type="spiral" />
+      <text
+         xml:space="preserve"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:Times New Roman"
+         x="192.18471"
+         y="680.57581"
+         id="text3107"
+         sodipodi:linespacing="125%"
+         transform="translate(-50.552744,-18.214265)"><tspan
+           sodipodi:role="line"
+           id="tspan3109"
+           x="192.18471"
+           y="680.57581" /></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:FreeSans;-inkscape-font-specification:FreeSans"
+         x="226.39182"
+         y="316.37952"
+         id="text5734"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5736"
+           x="226.39182"
+           y="316.37952">«Это надо запланировать»</tspan></text>
+    </g>
+  </g>
+</svg>
