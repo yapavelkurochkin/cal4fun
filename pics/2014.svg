@@ -9,14 +9,14 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="105.47794"
-   height="152.22144"
-   id="svg3919"
+   width="113.45422"
+   height="86.71357"
+   id="svg2984"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="2014.svg">
   <defs
-     id="defs3921" />
+     id="defs2986" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,23 +24,23 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="58.070449"
-     inkscape:cy="89.271807"
+     inkscape:zoom="2.8"
+     inkscape:cx="30.602641"
+     inkscape:cy="56.620822"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1246"
-     inkscape:window-height="657"
-     inkscape:window-x="700"
-     inkscape:window-y="496"
-     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     inkscape:window-width="952"
+     inkscape:window-height="849"
+     inkscape:window-x="1002"
+     inkscape:window-y="74"
+     inkscape:window-maximized="0" />
   <metadata
-     id="metadata3924">
+     id="metadata2989">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -55,24 +55,24 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-248.49753,-460.21933)">
+     transform="translate(-286.88333,-249.29091)">
     <text
        xml:space="preserve"
        style="font-size:48px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000080;fill-opacity:0.47787607;stroke:none;font-family:FreeSans;-inkscape-font-specification:FreeSans Bold"
-       x="248.60753"
-       y="502.90051"
+       x="290.77899"
+       y="333.19125"
        id="text2985"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan2987"
-         x="248.60753"
-         y="502.90051">2014</tspan></text>
+         x="290.77899"
+         y="333.19125">2014</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
-       id="rect3755"
-       width="106.57109"
-       height="6.5659914"
-       x="247.99245"
-       y="460.41281" />
+       id="rect3015"
+       width="113.13708"
+       height="48.472458"
+       x="286.88333"
+       y="249.29091" />
   </g>
 </svg>
