@@ -1,7 +1,7 @@
 \documentclass[fontsize=20pt]{scrartcl}
 \usepackage[pdf]{optional}
-\usepackage[koi8-r]{inputenc}
-\usepackage{scrpage2} % пакет для настройки колонтитулов
+\usepackage[utf8]{inputenc}
+\usepackage{scrpage2} % п©п╟п╨п╣я┌ п╢п╩я▐ п╫п╟я│я┌я─п╬п╧п╨п╦ п╨п╬п╩п╬п╫я┌п╦я┌я┐п╩п╬п╡
 
 \usepackage[english, russian]{babel}
 \usepackage{paratype}
@@ -21,8 +21,8 @@
 
 \renewcommand*{\titlepagestyle}{empty}
 
-% Adapted from http://tex.stackexchange.com/a/10199/4771 добавляем названия 
-% дней недели
+% Adapted from http://tex.stackexchange.com/a/10199/4771 п╢п╬п╠п╟п╡п╩я▐п╣п╪ п╫п╟п╥п╡п╟п╫п╦я▐ 
+% п╢п╫п╣п╧ п╫п╣п╢п╣п╩п╦
 \makeatletter%
 \tikzoption{day headings}{\tikzstyle{day heading}=[#1]}
 \tikzstyle{day heading}=[]
@@ -31,8 +31,8 @@
       \pgfmathsetlength{\pgf@ya}{\tikz@lib@cal@yshift}%
       \pgfmathsetlength\pgf@xa{\tikz@lib@cal@xshift}%
       \pgftransformyshift{-\pgf@ya}
-      \foreach \d/\l in {0/Понедельник,1/Вторник,2/Среда,3/Четверг,%
-                         4/Пятница,5/Суббота,6/Воскресенье} {
+      \foreach \d/\l in {0/п÷п╬п╫п╣п╢п╣п╩я▄п╫п╦п╨,1/п▓я┌п╬я─п╫п╦п╨,2/п║я─п╣п╢п╟,3/п╖п╣я┌п╡п╣я─пЁ,%
+                         4/п÷я▐я┌п╫п╦я├п╟,5/п║я┐п╠п╠п╬я┌п╟,6/п▓п╬я│п╨я─п╣я│п╣п╫я▄п╣} {
         \pgf@xa=\d\pgf@xa%
         \pgftransformxshift{\pgf@xa-\cellwidth/2}%
         \pgftransformyshift{\pgf@ya}%
@@ -49,13 +49,13 @@
 
 %% Adapted from pgf source
 \def\pgfcalendarmonthname#1{%
-  \translate{\ifcase#1\or ЯНВАРЬ\or ФЕВРАЛЬ\or МАРТ\or АПРЕЛЬ\or
-    МАЙ\or ИЮНЬ\or ИЮЛЬ\or АВГУСТ\or СЕНТЯБРЬ\or ОКТЯБРЬ\or
-    НОЯБРЬ\or ДЕКАБРЬ\fi}%
+  \translate{\ifcase#1\or п╞п²п▓п░п═п╛\or п╓п∙п▓п═п░п⌡п╛\or п°п░п═п╒\or п░п÷п═п∙п⌡п╛\or
+    п°п░п≥\or п≤п╝п²п╛\or п≤п╝п⌡п╛\or п░п▓п⌠пёп║п╒\or п║п∙п²п╒п╞п▒п═п╛\or п·п п╒п╞п▒п═п╛\or
+    п²п·п╞п▒п═п╛\or п■п∙п п░п▒п═п╛\fi}%
 }
 
 
-% переопределяем вид заголовка (название месяца)
+% п©п╣я─п╣п╬п©я─п╣п╢п╣п╩я▐п╣п╪ п╡п╦п╢ п╥п╟пЁп╬п╩п╬п╡п╨п╟ (п╫п╟п╥п╡п╟п╫п╦п╣ п╪п╣я│я▐я├п╟)
 \makeatletter
 \tikzstyle{month label above centered}=[%
   execute before day scope={%
@@ -154,7 +154,7 @@
 \definecolor{navy}{rgb}{0.000000,0.000000,0.501961}
 \definecolor{dimgray}{rgb}{0.411765,0.411765,0.411765}
 \definecolor{lightgray}{rgb}{0.827451,0.827451,0.827451}
-%%% выводим номер недели
+%%% п╡я▀п╡п╬п╢п╦п╪ п╫п╬п╪п╣я─ п╫п╣п╢п╣п╩п╦
 
 \pgfkeys{/tikz/week~number/.code =
   {
@@ -169,13 +169,13 @@
 \ExplSyntaxOff
 
 
-% код для ключа image. ключ имеет 2 аргумента --- ширина и название рисунка
-% картинка вставляется в ячейку календаря
+% п╨п╬п╢ п╢п╩я▐ п╨п╩я▌я┤п╟ image. п╨п╩я▌я┤ п╦п╪п╣п╣я┌ 2 п╟я─пЁя┐п╪п╣п╫я┌п╟ --- я┬п╦я─п╦п╫п╟ п╦ п╫п╟п╥п╡п╟п╫п╦п╣ я─п╦я│я┐п╫п╨п╟
+% п╨п╟я─я┌п╦п╫п╨п╟ п╡я│я┌п╟п╡п╩я▐п╣я┌я│я▐ п╡ я▐я┤п╣п╧п╨я┐ п╨п╟п╩п╣п╫п╢п╟я─я▐
 
 \pgfkeys{/tikz/image/.code 2 args=
  {
-  \draw (-\cellwidth,0) % задали точку 
-  node [above right]    % разместили объект над точкой и правее
+  \draw (-\cellwidth,0) % п╥п╟п╢п╟п╩п╦ я┌п╬я┤п╨я┐ 
+  node [above right]    % я─п╟п╥п╪п╣я│я┌п╦п╩п╦ п╬п╠я┼п╣п╨я┌ п╫п╟п╢ я┌п╬я┤п╨п╬п╧ п╦ п©я─п╟п╡п╣п╣
    {
    \begin{tikzpicture}
      \includegraphics[width=#1]{#2} 
@@ -194,7 +194,7 @@
 
 \pgfkeys{/tikz/anniversary/.code 2 args=\addtextyear{#1}{#2}}
 
-% описываем вид ячейки для даты (прямоугольник со скруглёнными краями)
+% п╬п©п╦я│я▀п╡п╟п╣п╪ п╡п╦п╢ я▐я┤п╣п╧п╨п╦ п╢п╩я▐ п╢п╟я┌я▀ (п©я─я▐п╪п╬я┐пЁп╬п╩я▄п╫п╦п╨ я│п╬ я│п╨я─я┐пЁп╩я▒п╫п╫я▀п╪п╦ п╨я─п╟я▐п╪п╦)
 \pgfkeys{/tikz/day code =
   {
     \node (lower right) at (0,0) [above left,font=\Huge] {\tikzdaytext};
@@ -215,16 +215,16 @@
 
 \pgfkeys{/tikz/inner sep = 0pt}
 
-\pgfkeys{/tikz/day xshift=\cellwidth+3mm+4mm}% xshift --- горизонтальный сдвиг между датами
+\pgfkeys{/tikz/day xshift=\cellwidth+3mm+4mm}% xshift --- пЁп╬я─п╦п╥п╬п╫я┌п╟п╩я▄п╫я▀п╧ я│п╢п╡п╦пЁ п╪п╣п╤п╢я┐ п╢п╟я┌п╟п╪п╦
 
-\pgfkeys{/tikz/day yshift=\cellheight+2mm+2mm}% yshift --- вертикальный сдвиг между датами
+\pgfkeys{/tikz/day yshift=\cellheight+2mm+2mm}% yshift --- п╡п╣я─я┌п╦п╨п╟п╩я▄п╫я▀п╧ я│п╢п╡п╦пЁ п╪п╣п╤п╢я┐ п╢п╟я┌п╟п╪п╦
 
 \newlength{\cellheight}
 \setlength{\cellheight}{18mm}
 \newlength{\cellwidth}
 \setlength{\cellwidth}{34mm}
 
-% настройка колонтитулов
+% п╫п╟я│я┌я─п╬п╧п╨п╟ п╨п╬п╩п╬п╫я┌п╦я┌я┐п╩п╬п╡
 
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
@@ -233,16 +233,16 @@
 
 %\renewcommand*{\chapterpagestyle}{empty}
 
-\pagestyle{scrheadings} % активируем команды для задания колонтитулов, описаннные ниже
-%\ohead{\pagemark} % номер страницы на чётных страницах слева, на нечётных --- справа
+\pagestyle{scrheadings} % п╟п╨я┌п╦п╡п╦я─я┐п╣п╪ п╨п╬п╪п╟п╫п╢я▀ п╢п╩я▐ п╥п╟п╢п╟п╫п╦я▐ п╨п╬п╩п╬п╫я┌п╦я┌я┐п╩п╬п╡, п╬п©п╦я│п╟п╫п╫п╫я▀п╣ п╫п╦п╤п╣
+%\ohead{\pagemark} % п╫п╬п╪п╣я─ я│я┌я─п╟п╫п╦я├я▀ п╫п╟ я┤я▒я┌п╫я▀я┘ я│я┌я─п╟п╫п╦я├п╟я┘ я│п╩п╣п╡п╟, п╫п╟ п╫п╣я┤я▒я┌п╫я▀я┘ --- я│п©я─п╟п╡п╟
 
 \lefoot{}                      %% Bottom left on even pages
 \lofoot{}                      %% Bottom left on odd pages
 \refoot{}                      %% Bottom right on even pages
-%\rofoot{\color{Black}\sf\small{\copyright{} НТЦ Метротек, 2014}} %% Bottom right on odd pages
+%\rofoot{\color{Black}\sf\small{\copyright{} п²п╒п╕ п°п╣я┌я─п╬я┌п╣п╨, 2014}} %% Bottom right on odd pages
 \rofoot{\color{Black}\sf\small{}} %% Bottom right on odd pages
 
-\cfoot{\color{navy}\footnotesize\sf{НТЦ Метротек, +7 (812) 340-0118, 
+\cfoot{\color{navy}\footnotesize\sf{п²п╒п╕ п°п╣я┌я─п╬я┌п╣п╨, +7 (812) 340-0118, 
 +7 (812) 340-0119 \\ metrotek.spb.ru}}                           %% Bottom center
 
 \lehead{\bfseries\pagemark}    %% Top left on even pages
@@ -253,20 +253,20 @@
 %\chead{}                           %% Top center
 
 \setkomafont{pagehead}{%
-\normalfont\normalcolor\sf\large %шрифт для колонтитулов
+\normalfont\normalcolor\sf\large %я┬я─п╦я└я┌ п╢п╩я▐ п╨п╬п╩п╬п╫я┌п╦я┌я┐п╩п╬п╡
 }
 
-%%%% высота верхнего колонтитула (header)
+%%%% п╡я▀я│п╬я┌п╟ п╡п╣я─я┘п╫п╣пЁп╬ п╨п╬п╩п╬п╫я┌п╦я┌я┐п╩п╟ (header)
 \setlength{\headheight}{10mm}
 
-%%%% вертикальный интервал от базовой линии нижней строки текста до
-%%%% базовой линии нижнего колонтитула (footer)
+%%%% п╡п╣я─я┌п╦п╨п╟п╩я▄п╫я▀п╧ п╦п╫я┌п╣я─п╡п╟п╩ п╬я┌ п╠п╟п╥п╬п╡п╬п╧ п╩п╦п╫п╦п╦ п╫п╦п╤п╫п╣п╧ я│я┌я─п╬п╨п╦ я┌п╣п╨я│я┌п╟ п╢п╬
+%%%% п╠п╟п╥п╬п╡п╬п╧ п╩п╦п╫п╦п╦ п╫п╦п╤п╫п╣пЁп╬ п╨п╬п╩п╬п╫я┌п╦я┌я┐п╩п╟ (footer)
 \setlength{\footskip}{10mm}
 
-%\deftripstyle{my}{\includegraphics[width=48mm]{pics/2015}}{}{}{}{\color{navy}\footnotesize\sf{НТЦ Метротек, +7 (812) 340-0118, +7 (812) 340-0119 }}{}
+%\deftripstyle{my}{\includegraphics[width=48mm]{pics/2015}}{}{}{}{\color{navy}\footnotesize\sf{п²п╒п╕ п°п╣я┌я─п╬я┌п╣п╨, +7 (812) 340-0118, +7 (812) 340-0119 }}{}
 
-\deftripstyle{y2014}{\includegraphics[width=48mm]{pics/2014}}{}{}{}{\raisebox{1ex}{\begin{tabular}[t]{cc} \color{navy}\footnotesize\sf{НТЦ Метротек, metrotek.spb.ru}\end{tabular}}}{}
-\deftripstyle{y2015}{\includegraphics[width=48mm]{pics/2015}}{}{}{}{\raisebox{1ex}{\begin{tabular}[t]{cc} \color{navy}\footnotesize\sf{НТЦ Метротек, metrotek.spb.ru}\end{tabular}}}{}
+\deftripstyle{y2014}{\includegraphics[width=48mm]{pics/2014}}{}{}{}{\raisebox{1ex}{\begin{tabular}[t]{cc} \color{navy}\footnotesize\sf{п²п╒п╕ п°п╣я┌я─п╬я┌п╣п╨, metrotek.spb.ru}\end{tabular}}}{}
+\deftripstyle{y2015}{\includegraphics[width=48mm]{pics/2015}}{}{}{}{\raisebox{1ex}{\begin{tabular}[t]{cc} \color{navy}\footnotesize\sf{п²п╒п╕ п°п╣я┌я─п╬я┌п╣п╨, metrotek.spb.ru}\end{tabular}}}{}
 
 
 %\setheadtopline{.1pt}[\color{blue}]
